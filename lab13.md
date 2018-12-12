@@ -1,30 +1,50 @@
 /*13-贪吃蛇实验报告*/
 #include <stdio.h>
+
 #include <windows.h>
+
 #include <stdlib.h>
+
 #include <math.h>
+
 #include <conio.h>
+
 #include <string.h>
+
 #include <time.h>
+
 void food();
+
 void show();
+
 void move();
+
 void turn();
+
 void check();
+
 void ini();
 
 int  dy[4] = { 0, 1, 0, -1 };
-int  dx[4] = { -1, 0, 1, 0 };
-int sum = 5;//蛇总长度
-int over = 0;
-int speed;
-char map[17][17];
-struct snake {
-    int x, y;  //身体坐标 
-    int dir;  //方向（只有蛇头的方向是有用的） 
-} A[100];
 
-void ini() {  //初始化界面
+int  dx[4] = { -1, 0, 1, 0 };
+
+int sum = 5;//蛇总长度
+
+int over = 0;
+
+int speed;
+
+char map[17][17];
+
+struct A[100]{
+    int x, y;  //身体坐标 
+
+    int dir;  //方向（只有蛇头的方向是有用的） 
+}
+
+void ini() {  //初始化游戏界面
+
     speed = 500;
     over = 0;
     sum = 5;
@@ -62,8 +82,10 @@ void ini() {  //初始化界面
     //calculate();
 }
 
-void show() {  //显示界面 
-    int i, j, x, y;
+void show() {//显示界面
+
+int i, j, x, y;
+    
     for (i = 0; i < 17; i++) {  //显示界面
         for (j = 0; j < 17; j++) {
             printf("%c", map[i][j]);
@@ -97,7 +119,8 @@ void show() {  //显示界面
     }
 }
 
-void food() {  //生成食物
+void food() {  //生成食物（任务二第一步）
+
     int x, y;
     while (1) {
         x = (int)(15 * rand() / (RAND_MAX + 1.0));  //随机产生一组食物坐标
@@ -112,6 +135,7 @@ void food() {  //生成食物
 }
 
 void move() {  //蛇移动
+
     int i, x, y;
     int t = sum;  //t记录当前蛇总长度 
     check();  //移动前检查按当前方向移动一步后的情况
@@ -141,7 +165,8 @@ void move() {  //蛇移动
         food();
     }
 
-void check() {  //检查是否死亡或者吃到食物
+void check() {  //检查是否死亡或者吃到食物（任务二第二步
+
     int x, y, i, j;
     x = A[sum - 1].x + dx[A[sum - 1].dir];  //记录按当前方向移动一格后蛇头的坐标 
     y = A[sum - 1].y + dy[A[sum - 1].dir];
@@ -168,6 +193,7 @@ void check() {  //检查是否死亡或者吃到食物
 }
 
 void turn() {  //转弯
+
     if (_kbhit()) {
         char dir = _getch();  //读取输入的键 
         switch (dir) {  //改变方向 
@@ -180,8 +206,7 @@ void turn() {  //转弯
 }
 
 int main() {
-    printf("'w''s''a''d'控制上下左右\n蛇越长跑得越快~~~\n");
-    printf("按任意键开始\n");
+
     char ch = _getch();
     system("cls");
     ini();
