@@ -35,8 +35,7 @@
 13. [13-贪吃蛇实验报告](lab13)
 14. [14-智能蛇实验报告](lab14)
 15. [15-互联网时代的盈利模式](lab15)
-
-
+16. [16-互联网时代热点领域选择、营销方法](lab16)
 ## Markdown 语法演示
 
 ![](images/exclamation.png) 语法 [demo 文档](demo)， [source](https://github.com/sysu-swi/homework/blob/gh-pages/demo.md)
